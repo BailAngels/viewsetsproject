@@ -42,3 +42,19 @@ class BlogImage(models.Model):
     def __str__(self):
         return self.blog.title
     
+
+class BlogFavorite(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='like_user',
+    )
+    blog = models.ForeignKey(
+        Blog,
+        on_delete=models.CASCADE,
+        related_name='like_blog',
+    )
+
+    def __str__(self):
+        return self.id
+    
