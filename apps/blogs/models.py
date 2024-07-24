@@ -56,5 +56,5 @@ class BlogFavorite(models.Model):
     )
 
     def __str__(self):
-        return self.id
+        return self.user.username
     

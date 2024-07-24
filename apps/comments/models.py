@@ -21,6 +21,20 @@ class Comment(models.Model):
     )
 
     def __str__(self):
-        return self.owner
+        return self.owner.username
     
-    
+
+class CommentFavorite(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='likes_user',
+    )
+    like_comment = models.ForeignKey(
+        Comment,
+        on_delete=models.CASCADE,
+        related_name='likes_comment',
+    )
+
+    def __str__(self):
+        return self.user.username
