@@ -22,6 +22,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('apps.blogs.urls')),
+    path('api/',include('apps.blogs.api.urls')),
     path('api/tags/', include('apps.tags.urls')),
     path('api/users/',include('apps.users.urls')),
     path('api/comments/',include('apps.comments.urls')),

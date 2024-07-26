@@ -1,13 +1,7 @@
-from rest_framework.routers import DefaultRouter
+from django.urls import path
 
 from apps.blogs import views
 
-router = DefaultRouter()
-router.register('blog',views.BlogAPIView,basename='blog')
-router.register('image',views.BlogImageAPIView,basename='image')
-router.register('like',views.BlogLikeAPIView,basename='like')
-
 urlpatterns = [
+    path('',views.BlogListView.as_view(),name='index')
 ]
-
-urlpatterns += router.urls
